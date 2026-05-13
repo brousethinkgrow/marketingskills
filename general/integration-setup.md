@@ -199,6 +199,46 @@ Use ask_user_input with:
 
 Save the answer to working notes as weekly-report-delivery.
 
+DISCOVERY Q12 — Social media platforms
+Read content-strategy.md. Check which platforms are listed.
+Then confirm with the consultant:
+
+Use ask_user_input with:
+"linkedin only"
+"linkedin + instagram"
+"linkedin + instagram + facebook"
+"linkedin + instagram + facebook + x (twitter)"
+"something else — i’ll specify"
+
+If "something else": ask for free text. Note any platform 
+not in the supported list (Instagram, Facebook, X) as 
+manual-only with no analytics integration.
+
+Save to working notes as active-platforms.
+
+For each active platform beyond LinkedIn, note the 
+following during discovery (full setup happens in Check 5.5):
+
+Instagram + Facebook:
+Both require a Meta Developer App. Ask:
+Use ask_user_input:
+"yes — meta developer app already exists"
+"no — no meta developer app yet"
+"i don’t know"
+Save as meta-developer-app: [yes / no / unknown]
+
+If yes, ask whether publishing permissions are approved:
+Use ask_user_input:
+"yes — app is approved for publishing"
+"no — app exists but publishing not yet approved"
+"analytics only — we just want to track performance"
+Save as meta-publishing-approved: [yes / no / analytics-only]
+
+X (Twitter): publishing is manual export in v1.
+Note to consultant: "X publishing is manual for now — 
+the system will prepare copy and images ready to paste."
+No further setup needed for X at discovery.
+
 WRITE THE DISCOVERY MAP:
 Save the answers to /01-client-knowledge/[client-name]/discovery-map.md
 in this format:
@@ -233,6 +273,12 @@ Channel: [exists / needs creating / not needed]
 Platform: [HubSpot / Mailchimp / Klaviyo / ConvertKit / ActiveCampaign / other / none]
 Integration status: [to configure / not available / none]
 
+## Social platforms
+Active platforms: [linkedin / linkedin+instagram / linkedin+instagram+facebook / linkedin+instagram+facebook+x]
+Meta Developer App: [yes / no / unknown / not applicable]
+Meta publishing approved: [yes / no / analytics-only / not applicable]
+X (Twitter): [manual export / not used]
+
 ## Reporting preferences
 Weekly report delivery: [slack / email / in-chat]
 Audit report delivery: [slack / in-chat]
@@ -252,6 +298,9 @@ to confirm before moving to Phase 2:
   - [Image generation: same structure]
   - [Slack: same structure]
   - [LinkedIn Ads: same structure]
+  - [Instagram: full Meta Graph API setup / save as pending / not used]
+  - [Facebook: full Meta Graph API setup / save as pending / not used]
+  - [X: manual export — no setup needed]
   
   Ready to proceed?
   
@@ -987,6 +1036,209 @@ Output:
   ---
 
 ─────────────────────────────────────────────────────
+CHECK 5.5 — Instagram + Facebook (Meta Graph API)
+─────────────────────────────────────────────────────
+
+Read discovery-map.md — check active-platforms,
+meta-developer-app, and meta-publishing-approved.
+
+If active-platforms does not include instagram or facebook:
+  Skip this check silently.
+
+MCP CONNECTOR CHECK:
+Use search_mcp_registry with query "instagram" then "facebook".
+If an official MCP connector exists and is connected:
+  Present via suggest_connectors.
+  On connection: save to integrations.md and proceed.
+  MCP connectors handle auth automatically — no token setup.
+
+If no MCP connector: proceed with Meta Graph API below.
+
+────────────────────────
+META DEVELOPER APP SETUP
+────────────────────────
+
+Both Instagram and Facebook use the Meta Graph API.
+This requires a Meta Developer App — similar to LinkedIn's
+developer app requirement.
+
+Read discovery-map.md — check meta-developer-app.
+
+IF meta-developer-app = no:
+
+  Output this message:
+  ---
+  META DEVELOPER APP SETUP
+
+  Instagram and Facebook both use Meta's API, which requires
+  a Facebook Developer account and a Meta Developer App.
+  This is a one-time setup that takes about 15-20 minutes.
+
+  Step 1 — Create a Facebook Developer account (if needed):
+  Go to developers.facebook.com and log in with a personal
+  Facebook account. Click "Get Started" if not already a developer.
+
+  Step 2 — Create a new app:
+  My Apps → Create App → Select "Business" as app type.
+  Name it clearly: "[Client Name] — Marketing Automation"
+  Link it to the client's Facebook Business account.
+
+  Step 3 — Add products to the app:
+  In the app dashboard, add:
+  • Facebook Login (required for permissions)
+  • Instagram Graph API (if Instagram is in active platforms)
+  • Pages API (for Facebook Page posting)
+
+  Step 4 — Configure permissions:
+  Under App Review → Permissions and Features, note that:
+  • pages_read_engagement + instagram_basic — available 
+    immediately after business verification. These enable
+    analytics tracking right away.
+  • pages_manage_posts + instagram_content_publish — require
+    Meta App Review. Submit for review now. Approval typically
+    takes 3-7 business days.
+
+  Start with analytics permissions now. Posting will activate
+  once Meta approves the app.
+
+  Let me know when the app is created.
+  ---
+
+  Use ask_user_input with:
+  "app created — ready for next step"
+  "i need help with this step"
+  "skip — do this later"
+
+  If "skip": save as:
+  ## Instagram / ## Facebook Status: pending — Meta Developer App not yet created
+  Skip to CHECK 6.
+
+IF meta-developer-app = yes:
+  Proceed to token setup below.
+
+────────────────────────
+ACCESS TOKEN SETUP (runs after app exists)
+────────────────────────
+
+Output this message:
+---
+META ACCESS TOKEN SETUP
+
+Now we'll generate a long-lived Page Access Token.
+This token enables both analytics and (once approved)
+automated posting.
+
+Step 1 — Go to the Meta Graph API Explorer:
+developers.facebook.com/tools/explorer
+
+Step 2 — Select your app from the dropdown at the top right.
+
+Step 3 — Select your Facebook Page from "User or Page".
+
+Step 4 — Add these permissions:
+For analytics (available now):
+  • pages_read_engagement
+  • pages_show_list
+  • instagram_basic
+  • instagram_manage_insights
+
+For publishing (add now, activates after Meta approval):
+  • pages_manage_posts
+  • instagram_content_publish
+
+Step 5 — Click "Generate Access Token" and authorise.
+
+Step 6 — Exchange for a long-lived token (60 days):
+Run this in the Graph API Explorer or in your browser:
+GET https://graph.facebook.com/v18.0/oauth/access_token
+Params: grant_type=fb_exchange_token, 
+client_id=[your_app_id], 
+client_secret=[your_app_secret],
+fb_exchange_token=[short_lived_token]
+
+Copy the long-lived token from the response.
+
+Step 7 — Note your IDs:
+• Facebook Page ID (visible in Page Settings → About)
+• Instagram Business Account ID (Graph API Explorer →
+  select Page → GET /me/instagram_accounts)
+
+Paste the token and IDs below when ready.
+---
+
+Use ask_user_input with:
+"done — i have the token and IDs"
+"i need help generating the token"
+"skip — set this up later"
+
+If "done — i have the token and IDs":
+  Ask for token, Page ID, and Instagram Business Account ID
+  as free text (one per message).
+
+  Test analytics connection (always available):
+  GET https://graph.facebook.com/v18.0/[page_id]
+  Params: fields=name,fan_count&access_token=[token]
+  
+  If 200: analytics connected.
+  
+  Read discovery-map.md — check meta-publishing-approved.
+  
+  If meta-publishing-approved = yes:
+    Test publishing permission:
+    GET https://graph.facebook.com/v18.0/[instagram_account_id]
+    Params: fields=username&access_token=[token]
+    If 200: full publishing connected.
+    Save to integrations.md:
+    ## Instagram
+    Status: connected — analytics + publishing
+    Instagram Business Account ID: [id]
+    Page Access Token: [token]
+    Token expiry: [YYYY-MM-DD — 60 days from today]
+    ## Facebook
+    Status: connected — analytics + publishing
+    Facebook Page ID: [id]
+    Page Access Token: [same token]
+    Token expiry: [same]
+    Confirm: "Instagram and Facebook connected for both 
+    analytics and publishing. Token expires [date] — 
+    I'll flag renewal 7 days before."
+
+  If meta-publishing-approved = no or analytics-only:
+    Save to integrations.md:
+    ## Instagram
+    Status: analytics only — publishing pending Meta app review
+    Instagram Business Account ID: [id]
+    Page Access Token: [token]
+    Token expiry: [YYYY-MM-DD]
+    ## Facebook
+    Status: analytics only — publishing pending Meta app review
+    Facebook Page ID: [id]
+    Page Access Token: [same token]
+    Token expiry: [same]
+    Confirm: "Instagram and Facebook connected for analytics.
+    Automated posting will activate once Meta approves your app.
+    I'll remind you to check approval status in 7 days.
+    In the meantime, posts will be exported for manual publishing."
+
+  If API call fails:
+    Reference INTEGRATION ERROR PATTERNS.
+
+If "skip — set this up later":
+  Save as Status: pending for both.
+  Note: posts will be exported for manual posting until connected.
+  Confirm: "Saved as pending. Type 'Set up Instagram integration'
+  or 'Set up Facebook integration' to configure later."
+
+X (TWITTER) — manual export:
+If X is in active-platforms:
+  Save to integrations.md:
+  ## X (Twitter)
+  Status: manual export
+  Note: system prepares copy and images ready to paste.
+  Confirm: "X is set to manual posting."
+
+
+─────────────────────────────────────────────────────
 CHECK 6 OF 6 — Email platform
 ─────────────────────────────────────────────────────
 
@@ -1213,6 +1465,30 @@ If Status = manual entry or platform not yet supported:
 
 If Status not set or ## Email platform missing from 
 integrations.md: skip silently.
+
+Instagram (if connected via Meta Graph API):
+Read integrations.md — check ## Instagram Status.
+If connected:
+  GET https://graph.facebook.com/v18.0/[instagram_account_id]/media
+  Params: fields=id,caption,timestamp,like_count,comments_count,
+  reach,impressions,media_type&access_token=[token]&limit=20
+  For each post in last 28 days extract:
+  date, reach, impressions, likes, comments,
+  engagement rate = (likes+comments)/reach*100
+  media_type (IMAGE/CAROUSEL_ALBUM/REEL)
+
+Facebook (if connected via Meta Graph API):
+Read integrations.md — check ## Facebook Status.
+If connected:
+  GET https://graph.facebook.com/v18.0/[page_id]/posts
+  Params: fields=id,message,created_time,
+  likes.summary(true),comments.summary(true)&access_token=[token]
+  For each post in last 28 days extract:
+  date, message preview, likes count, comments count.
+
+X (manual only):
+If X is in active-platforms and data is not available automatically,
+note in brief: "X performance data requires manual entry."
 
 STEP 2 — PATTERN ANALYSIS
 
