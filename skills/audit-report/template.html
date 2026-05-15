@@ -1,0 +1,538 @@
+<html lang="en"><head><script>window.__resources = {};</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{PAGE_TITLE}}</title>
+<style>
+:root {
+  --tg-orange-100: #fde4d3; --tg-orange-300: #f8b489; --tg-orange-500: #f07020; --tg-orange-700: #b85010;
+  --tg-purple-100: #e9dcef; --tg-purple-300: #b18fc2; --tg-purple-500: #683088; --tg-purple-700: #47205e;
+  --tg-teal-100: #cfe6df; --tg-teal-300: #6bb8a3; --tg-teal-500: #109078; --tg-teal-700: #0a6453;
+  --tg-pink-100: #fdeee7; --tg-pink-300: #fad5c5; --tg-pink-500: #f8c8b8; --tg-pink-700: #d99a84;
+  --tg-neutral-0: #ffffff; --tg-neutral-20: #fafaf7; --tg-neutral-50: #f3f3ee; --tg-neutral-100: #e7e7e1;
+  --tg-neutral-300: #c4c3bd; --tg-neutral-500: #8a8a84; --tg-neutral-700: #4c4c48; --tg-neutral-900: #1b1b19;
+  --tg-success-100: #d4ecd6; --tg-success-300: #7dc380; --tg-success-500: #2e8b38; --tg-success-700: #185c20;
+  --tg-warning-100: #fdecc8; --tg-warning-300: #f5c663; --tg-warning-500: #e0a012; --tg-warning-700: #8f6308;
+  --tg-error-100: #fadcd9; --tg-error-300: #ef8a82; --tg-error-500: #cc3a2d; --tg-error-700: #861e14;
+  --tg-info-100: #d5e6f3; --tg-info-300: #7aacd4; --tg-info-500: #1f6aa8; --tg-info-700: #104166;
+  --fg-1: var(--tg-neutral-900); --fg-2: var(--tg-neutral-700); --fg-3: var(--tg-neutral-500);
+  --fg-inv: var(--tg-neutral-0); --fg-brand: var(--tg-orange-500);
+  --bg-1: var(--tg-neutral-0); --bg-2: var(--tg-neutral-20); --bg-3: var(--tg-neutral-50);
+  --bg-inv: var(--tg-neutral-900); --bg-brand: var(--tg-orange-500); --bg-brand-soft: var(--tg-pink-100);
+  --border-1: var(--tg-neutral-100); --border-2: var(--tg-neutral-300); --border-strong: var(--tg-neutral-900);
+  --font-sans: 'Inter', 'Outfit', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: 'Source Serif 4', ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --display-01-size: 72px; --display-01-lh: 1.05; --display-01-tr: -0.02em;
+  --h1-size: 56px; --h1-lh: 1.08; --h1-tr: -0.015em;
+  --h2-size: 40px; --h2-lh: 1.15; --h2-tr: -0.01em;
+  --h3-size: 28px; --h3-lh: 1.25; --h3-tr: -0.005em;
+  --h4-size: 22px; --h4-lh: 1.35; --h4-tr: 0;
+  --subheading-size: 20px; --subheading-lh: 1.4;
+  --p1-size: 18px; --p1-lh: 1.55; --p2-size: 16px; --p2-lh: 1.6;
+  --p3-size: 14px; --p3-lh: 1.6; --caption-size: 12px; --caption-lh: 1.45; --caption-tr: 0.02em;
+  --fw-regular: 400; --fw-medium: 500; --fw-semi: 600; --fw-bold: 700; --fw-extra: 800;
+  --sp-0: 0; --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px; --sp-5: 24px;
+  --sp-6: 32px; --sp-7: 48px; --sp-8: 64px; --sp-9: 96px; --sp-10: 128px;
+  --r-xs: 4px; --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 24px; --r-pill: 999px;
+  --shadow-xs: 0 1px 2px rgba(27,27,25,.06); --shadow-sm: 0 2px 6px rgba(27,27,25,.07), 0 1px 2px rgba(27,27,25,.04);
+  --shadow-md: 0 8px 20px rgba(27,27,25,.08), 0 2px 6px rgba(27,27,25,.04);
+  --shadow-lg: 0 24px 48px rgba(27,27,25,.12), 0 4px 12px rgba(27,27,25,.06);
+  --shadow-focus: 0 0 0 3px rgba(240,112,32,.3);
+  --ease-standard: cubic-bezier(.2,.6,.2,1); --ease-out: cubic-bezier(.16,1,.3,1);
+  --dur-fast: 140ms; --dur-base: 220ms; --dur-slow: 360ms;
+}
+html { font-family: var(--font-sans); color: var(--fg-1); background: var(--bg-2); }
+body { margin: 0; font-size: var(--p2-size); line-height: var(--p2-lh); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: var(--tg-orange-500); color: #fff; }
+h1,.h1 { font-family: var(--font-sans); font-size: var(--h1-size); line-height: var(--h1-lh); letter-spacing: var(--h1-tr); font-weight: var(--fw-semi); margin: 0 0 var(--sp-5); color: var(--fg-1); }
+h2,.h2 { font-family: var(--font-sans); font-size: var(--h2-size); line-height: var(--h2-lh); letter-spacing: var(--h2-tr); font-weight: var(--fw-semi); margin: 0 0 var(--sp-4); color: var(--fg-1); }
+h3,.h3 { font-family: var(--font-sans); font-size: var(--h3-size); line-height: var(--h3-lh); letter-spacing: var(--h3-tr); font-weight: var(--fw-semi); margin: 0 0 var(--sp-3); color: var(--fg-1); }
+p,.p2 { font-size: var(--p2-size); line-height: var(--p2-lh); font-weight: var(--fw-regular); color: var(--fg-2); margin: 0 0 var(--sp-4); }
+p b, p strong { font-weight: var(--fw-medium); }
+ul.brand, ol.brand { margin: 0 0 var(--sp-4); padding-left: var(--sp-5); color: var(--fg-2); }
+ul.brand li, ol.brand li { margin-bottom: var(--sp-2); line-height: var(--p2-lh); }
+ul.brand li::marker { color: var(--tg-orange-500); }
+</style>
+<style>
+  :root {
+    --font: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-display: 'Inter Tight', 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --rule: var(--border-1); --rule-strong: var(--tg-neutral-900); --container: 1180px;
+  }
+  html, body { font-family: var(--font); background: var(--bg-2); color: var(--fg-1); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { font-feature-settings: "ss01", "cv11"; }
+  .wrap { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+  .topbar { position: sticky; top: 0; z-index: 50; background: rgba(250,250,247,.88); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+  .topbar-inner { max-width: var(--container); margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .topbar-brand { display: flex; align-items: center; gap: 14px; }
+  .topbar-brand img { height: 22px; }
+  .topbar-brand .sep { width: 1px; height: 16px; background: var(--border-2); }
+  .topbar-brand .label { font-size: 13px; font-weight: 500; letter-spacing: -0.005em; color: var(--fg-1); }
+  .topbar .nav { display: flex; gap: 22px; font-size: 12px; color: var(--fg-3); letter-spacing: 0.04em; font-variant-numeric: tabular-nums; }
+  .topbar .nav a { color: inherit; text-decoration: none; transition: color var(--dur-fast) var(--ease-standard); }
+  .topbar .nav a:hover { color: var(--tg-orange-500); }
+  .cover { padding: 88px 0 56px; }
+  .cover .doc-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); margin-bottom: 48px; font-size: 12px; }
+  .doc-meta .field { display: flex; flex-direction: column; gap: 6px; }
+  .doc-meta .field .k { font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-3); font-size: 11px; }
+  .doc-meta .field .v { font-size: 14px; font-weight: 500; color: var(--fg-1); letter-spacing: -0.005em; }
+  .doc-meta .field .v.orange { color: var(--tg-orange-500); }
+  .doc-meta .field .v .dot-live { display: inline-block; width: 6px; height: 6px; border-radius: 999px; background: var(--tg-orange-500); margin-right: 6px; vertical-align: middle; animation: pulse 2s var(--ease-standard) infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+  .cover h1 { font-family: var(--font-display); font-size: clamp(48px, 8.2vw, 112px); line-height: 0.96; letter-spacing: -0.035em; font-weight: 600; margin: 0; max-width: 16ch; text-wrap: balance; }
+  .cover h1 .accent { color: var(--tg-orange-500); font-style: normal; }
+  .cover h1 .accent-dot { display: inline-block; width: 0.18em; height: 0.18em; background: var(--tg-orange-500); border-radius: 999px; vertical-align: 0.18em; margin-left: 0.05em; }
+  .cover .lede { margin-top: 36px; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 4fr); gap: 56px; align-items: end; }
+  .cover .lede p { font-size: 20px; line-height: 1.5; color: var(--fg-2); margin: 0; max-width: 52ch; letter-spacing: -0.005em; }
+  .cover .lede .rainbow { justify-self: end; width: 180px; height: auto; opacity: 0.95; }
+  .section { padding: 88px 0; border-top: 1px solid var(--rule); }
+  .section-head { display: grid; grid-template-columns: 120px 1fr; gap: 32px; align-items: start; margin-bottom: 56px; }
+  .section-num { font-family: var(--font-display); font-size: 14px; font-weight: 600; letter-spacing: 0.06em; color: var(--fg-3); font-variant-numeric: tabular-nums; padding-top: 8px; }
+  .section-num::before { content: ""; display: block; width: 32px; height: 2px; background: var(--tg-orange-500); margin-bottom: 14px; }
+  .section-head h2 { font-family: var(--font-display); font-size: clamp(32px, 4.4vw, 56px); line-height: 1.05; letter-spacing: -0.022em; font-weight: 600; margin: 0; max-width: 22ch; text-wrap: balance; }
+  .section-head .sub { grid-column: 2; margin-top: 18px; font-size: 17px; line-height: 1.55; color: var(--fg-2); max-width: 64ch; }
+  .summary { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .summary .stat { padding: 40px 32px 36px; border-left: 1px solid var(--rule); display: flex; flex-direction: column; gap: 14px; }
+  .summary .stat:first-child { border-left: 0; }
+  .summary .stat .tag { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tg-orange-500); }
+  .summary .stat.purple .tag { color: var(--tg-purple-500); }
+  .summary .stat.teal .tag { color: var(--tg-teal-500); }
+  .summary .stat .n { font-family: var(--font-display); font-size: clamp(72px, 9vw, 128px); line-height: 0.92; letter-spacing: -0.04em; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--fg-1); }
+  .summary .stat .label { font-size: 14px; line-height: 1.55; color: var(--fg-2); max-width: 32ch; }
+  .editorial { display: grid; grid-template-columns: 120px 1fr; gap: 32px; }
+  .editorial-list { display: flex; flex-direction: column; }
+  .ed-item { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr); gap: 48px; padding: 32px 0; border-top: 1px solid var(--rule); align-items: start; }
+  .ed-item:first-child { border-top: 0; padding-top: 0; }
+  .ed-item:last-child { padding-bottom: 0; }
+  .ed-item .marg { display: flex; flex-direction: column; gap: 10px; }
+  .ed-item .marg .index { font-family: var(--font-display); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; color: var(--fg-3); font-variant-numeric: tabular-nums; }
+  .ed-item .marg h3 { font-family: var(--font-display); font-size: 26px; line-height: 1.15; letter-spacing: -0.015em; font-weight: 600; margin: 0; max-width: 18ch; text-wrap: balance; }
+  .ed-item .body { font-size: 16px; line-height: 1.65; color: var(--fg-2); margin: 0; }
+  .ed-item .body .pull { color: var(--fg-1); font-weight: 500; }
+  .fix-table { margin-top: 8px; border-top: 2px solid var(--rule-strong); }
+  .fix-row { display: grid; grid-template-columns: 64px 1fr 200px; gap: 32px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--rule); transition: background var(--dur-fast) var(--ease-standard); }
+  .fix-row:hover { background: rgba(240,112,32,.025); }
+  .fix-row .sev { font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; padding: 6px 0; text-align: center; border-radius: 4px; margin-top: 2px; width: 48px; }
+  .fix-row.p0 .sev { background: var(--tg-orange-500); color: #fff; }
+  .fix-row.p1 .sev { background: transparent; color: var(--fg-3); border: 1px solid var(--border-2); }
+  .fix-row .what h3 { font-family: var(--font-display); font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin: 0 0 6px; }
+  .fix-row .what p { font-size: 15px; line-height: 1.6; color: var(--fg-2); margin: 0; max-width: 70ch; }
+  .fix-row .meta { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; text-align: right; padding-top: 4px; font-variant-numeric: tabular-nums; }
+  .fix-row .meta .time { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--fg-1); letter-spacing: -0.005em; }
+  .fix-row .meta .where { font-size: 12px; color: var(--fg-3); letter-spacing: 0.04em; }
+  .comp-grid { display: grid; grid-template-columns: 120px 1fr; gap: 32px; }
+  .comp-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); }
+  .comp { background: var(--bg-2); padding: 32px 28px; display: flex; flex-direction: column; gap: 14px; min-height: 220px; transition: background var(--dur-base) var(--ease-standard); }
+  .comp:hover { background: var(--bg-1); }
+  .comp.threat { background: var(--tg-neutral-900); color: var(--tg-neutral-0); grid-column: 1 / -1; min-height: 180px; }
+  .comp.threat:hover { background: var(--tg-neutral-900); }
+  .comp .row1 { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .comp .role { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); }
+  .comp.threat .role { color: var(--tg-orange-300); }
+  .comp .domain { font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--fg-3); text-transform: uppercase; font-variant-numeric: tabular-nums; }
+  .comp.threat .domain { color: rgba(250,250,247,.55); }
+  .comp h3 { font-family: var(--font-display); font-size: 24px; line-height: 1.2; font-weight: 600; letter-spacing: -0.012em; margin: 0; }
+  .comp.threat h3 { font-size: 38px; letter-spacing: -0.022em; max-width: 14ch; }
+  .comp p { font-size: 15px; line-height: 1.6; color: var(--fg-2); margin: 0; max-width: 56ch; }
+  .comp.threat p { color: rgba(250,250,247,.78); }
+  .plan { display: grid; grid-template-columns: 120px 1fr; gap: 32px; }
+  .plan-steps { display: flex; flex-direction: column; }
+  .step { display: grid; grid-template-columns: 160px 1fr 200px; gap: 40px; align-items: start; padding: 36px 0; border-top: 1px solid var(--rule); position: relative; transition: padding-left var(--dur-base) var(--ease-standard); }
+  .step:first-child { border-top: 2px solid var(--rule-strong); }
+  .step:last-child { border-bottom: 2px solid var(--rule-strong); }
+  .step:hover { padding-left: 12px; }
+  .step .number { font-family: var(--font-display); font-size: 80px; line-height: 0.9; font-weight: 600; letter-spacing: -0.04em; color: var(--tg-orange-500); font-variant-numeric: tabular-nums; }
+  .step .number .total { font-size: 22px; color: var(--fg-3); letter-spacing: -0.01em; margin-left: 4px; }
+  .step h3 { font-family: var(--font-display); font-size: 26px; line-height: 1.2; font-weight: 600; letter-spacing: -0.015em; margin: 0 0 10px; max-width: 24ch; text-wrap: balance; }
+  .step p { font-size: 16px; line-height: 1.6; color: var(--fg-2); margin: 0; max-width: 60ch; }
+  .step .when { display: flex; flex-direction: column; gap: 8px; padding-top: 6px; }
+  .step .when .when-k { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-3); }
+  .step .when .when-v { font-family: var(--font-display); font-size: 17px; font-weight: 600; letter-spacing: -0.008em; color: var(--fg-1); }
+  .step .when .when-v.orange { color: var(--tg-orange-500); }
+  .footer { margin-top: 24px; padding: 40px 0 56px; border-top: 1px solid var(--rule); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; font-size: 13px; color: var(--fg-3); }
+  .footer .colophon { display: flex; flex-direction: column; gap: 8px; max-width: 50ch; }
+  .footer .colophon strong { color: var(--fg-1); font-weight: 500; letter-spacing: -0.005em; }
+  .footer .ampersand { width: 64px; height: 64px; opacity: 0.7; }
+  .reveal { opacity: 0; transform: translateY(14px); animation: fadeUp 700ms var(--ease-out) forwards; animation-delay: var(--delay, 0ms); }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation: none; opacity: 1; transform: none; } }
+  @media (max-width: 960px) {
+    .wrap { padding: 0 22px; } .topbar-inner { padding: 12px 22px; } .topbar .nav { display: none; }
+    .cover { padding: 56px 0 40px; } .cover .doc-meta { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .cover .lede { grid-template-columns: 1fr; gap: 32px; } .cover .lede .rainbow { width: 120px; justify-self: start; order: -1; }
+    .section { padding: 56px 0; } .section-head { grid-template-columns: 1fr; gap: 16px; margin-bottom: 36px; }
+    .section-head .sub { grid-column: 1; margin-top: 8px; font-size: 16px; }
+    .summary { grid-template-columns: 1fr; } .summary .stat { border-left: 0; border-top: 1px solid var(--rule); padding: 28px 0; } .summary .stat:first-child { border-top: 0; }
+    .editorial, .comp-grid, .plan { grid-template-columns: 1fr; gap: 0; }
+    .ed-item { grid-template-columns: 1fr; gap: 16px; padding: 24px 0; }
+    .fix-row { grid-template-columns: 48px 1fr; gap: 16px; } .fix-row .meta { grid-column: 2; align-items: flex-start; text-align: left; }
+    .comp-list { grid-template-columns: 1fr; } .comp.threat h3 { font-size: 28px; }
+    .step { grid-template-columns: auto 1fr; gap: 20px; padding: 28px 0; } .step:hover { padding-left: 0; }
+    .step .number { font-size: 56px; } .step .when { grid-column: 1 / -1; flex-direction: row; gap: 28px; }
+    .footer { grid-template-columns: 1fr; } .footer .ampersand { width: 48px; height: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── Top bar ─────────────────────────────────────────── -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand">
+      <img src="assets/tg-logo.png" alt="Think &amp; Grow">
+      <span class="sep"></span>
+      <span class="label">{{TOPBAR_LABEL}}</span>
+    </div>
+    <nav class="nav">
+      <a href="#summary">01 — Summary</a>
+      <a href="#working">02 — Working</a>
+      <a href="#fixing">03 — Fixing</a>
+      <a href="#competitive">04 — Competitive</a>
+      <a href="#plan">05 — Plan</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ─── Cover ───────────────────────────────────────── -->
+  <section class="cover">
+    <div class="doc-meta reveal" style="--delay: 0ms;">
+      <div class="field">
+        <span class="k">Document</span>
+        <span class="v">{{META_DOCUMENT}}</span>
+      </div>
+      <div class="field">
+        <span class="k">Prepared for</span>
+        <span class="v">{{META_CLIENT}}</span>
+      </div>
+      <div class="field">
+        <span class="k">Date</span>
+        <span class="v">{{META_DATE}}</span>
+      </div>
+      <div class="field">
+        <span class="k">Status</span>
+        <span class="v orange"><span class="dot-live"></span>{{META_STATUS}}</span>
+      </div>
+    </div>
+
+    <h1 class="reveal" style="--delay: 140ms;">{{COVER_HEADLINE_PRE}}<span class="accent">{{COVER_HEADLINE_ACCENT}}<span class="accent-dot"></span></span></h1>
+
+    <div class="lede">
+      <p class="reveal" style="--delay: 240ms;">{{COVER_LEDE}}</p>
+      <img class="rainbow reveal" style="--delay: 320ms;" src="assets/think-rainbow.png" alt="">
+    </div>
+  </section>
+
+  <!-- ─── 01 Summary ──────────────────────────────────── -->
+  <section class="section" id="summary">
+    <div class="section-head">
+      <div class="section-num">01 / 05</div>
+      <div>
+        <h2>{{S1_HEADING}}</h2>
+        <p class="sub">{{S1_SUBHEADING}}</p>
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="stat reveal" style="--delay: 80ms;">
+        <span class="tag">{{STAT_1_TAG}}</span>
+        <span class="n">{{STAT_1_NUMBER}}</span>
+        <span class="label">{{STAT_1_LABEL}}</span>
+      </div>
+      <div class="stat purple reveal" style="--delay: 140ms;">
+        <span class="tag">{{STAT_2_TAG}}</span>
+        <span class="n">{{STAT_2_NUMBER}}</span>
+        <span class="label">{{STAT_2_LABEL}}</span>
+      </div>
+      <div class="stat teal reveal" style="--delay: 200ms;">
+        <span class="tag">{{STAT_3_TAG}}</span>
+        <span class="n">{{STAT_3_NUMBER}}</span>
+        <span class="label">{{STAT_3_LABEL}}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 02 What is working ──────────────────────────── -->
+  <section class="section" id="working">
+    <div class="section-head">
+      <div class="section-num">02 / 05</div>
+      <div>
+        <h2>{{S2_HEADING}}</h2>
+        <p class="sub">{{S2_SUBHEADING}}</p>
+      </div>
+    </div>
+
+    <div class="editorial">
+      <div></div>
+      <div class="editorial-list">
+
+        <article class="ed-item reveal" style="--delay: 80ms;">
+          <div class="marg">
+            <span class="index">{{W1_INDEX}}</span>
+            <h3>{{W1_TITLE}}</h3>
+          </div>
+          <p class="body">{{W1_BODY}}</p>
+        </article>
+
+        <article class="ed-item reveal" style="--delay: 130ms;">
+          <div class="marg">
+            <span class="index">{{W2_INDEX}}</span>
+            <h3>{{W2_TITLE}}</h3>
+          </div>
+          <p class="body">{{W2_BODY}}</p>
+        </article>
+
+        <article class="ed-item reveal" style="--delay: 180ms;">
+          <div class="marg">
+            <span class="index">{{W3_INDEX}}</span>
+            <h3>{{W3_TITLE}}</h3>
+          </div>
+          <p class="body">{{W3_BODY}}</p>
+        </article>
+
+        <article class="ed-item reveal" style="--delay: 230ms;">
+          <div class="marg">
+            <span class="index">{{W4_INDEX}}</span>
+            <h3>{{W4_TITLE}}</h3>
+          </div>
+          <p class="body">{{W4_BODY}}</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 03 What needs fixing ────────────────────────── -->
+  <section class="section" id="fixing">
+    <div class="section-head">
+      <div class="section-num">03 / 05</div>
+      <div>
+        <h2>{{S3_HEADING}}</h2>
+        <p class="sub">{{S3_SUBHEADING}}</p>
+      </div>
+    </div>
+
+    <div class="editorial">
+      <div></div>
+      <div class="fix-table">
+
+        <!-- P0 items -->
+        <div class="fix-row p0 reveal" style="--delay: 60ms;">
+          <span class="sev">P0</span>
+          <div class="what">
+            <h3>{{F1_TITLE}}</h3>
+            <p>{{F1_BODY}}</p>
+          </div>
+          <div class="meta">
+            <span class="time">{{F1_TIME}}</span>
+            <span class="where">{{F1_WHERE}}</span>
+          </div>
+        </div>
+
+        <div class="fix-row p0 reveal" style="--delay: 100ms;">
+          <span class="sev">P0</span>
+          <div class="what">
+            <h3>{{F2_TITLE}}</h3>
+            <p>{{F2_BODY}}</p>
+          </div>
+          <div class="meta">
+            <span class="time">{{F2_TIME}}</span>
+            <span class="where">{{F2_WHERE}}</span>
+          </div>
+        </div>
+
+        <div class="fix-row p0 reveal" style="--delay: 140ms;">
+          <span class="sev">P0</span>
+          <div class="what">
+            <h3>{{F3_TITLE}}</h3>
+            <p>{{F3_BODY}}</p>
+          </div>
+          <div class="meta">
+            <span class="time">{{F3_TIME}}</span>
+            <span class="where">{{F3_WHERE}}</span>
+          </div>
+        </div>
+
+        <!-- P1 items -->
+        <div class="fix-row p1 reveal" style="--delay: 200ms;">
+          <span class="sev">P1</span>
+          <div class="what">
+            <h3>{{F4_TITLE}}</h3>
+            <p>{{F4_BODY}}</p>
+          </div>
+          <div class="meta">
+            <span class="time">{{F4_TIME}}</span>
+            <span class="where">{{F4_WHERE}}</span>
+          </div>
+        </div>
+
+        <div class="fix-row p1 reveal" style="--delay: 240ms;">
+          <span class="sev">P1</span>
+          <div class="what">
+            <h3>{{F5_TITLE}}</h3>
+            <p>{{F5_BODY}}</p>
+          </div>
+          <div class="meta">
+            <span class="time">{{F5_TIME}}</span>
+            <span class="where">{{F5_WHERE}}</span>
+          </div>
+        </div>
+
+        <div class="fix-row p1 reveal" style="--delay: 280ms;">
+          <span class="sev">P1</span>
+          <div class="what">
+            <h3>{{F6_TITLE}}</h3>
+            <p>{{F6_BODY}}</p>
+          </div>
+          <div class="meta">
+            <span class="time">{{F6_TIME}}</span>
+            <span class="where">{{F6_WHERE}}</span>
+          </div>
+        </div>
+
+        <div class="fix-row p1 reveal" style="--delay: 320ms;">
+          <span class="sev">P1</span>
+          <div class="what">
+            <h3>{{F7_TITLE}}</h3>
+            <p>{{F7_BODY}}</p>
+          </div>
+          <div class="meta">
+            <span class="time">{{F7_TIME}}</span>
+            <span class="where">{{F7_WHERE}}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 04 Competitive ──────────────────────────────── -->
+  <section class="section" id="competitive">
+    <div class="section-head">
+      <div class="section-num">04 / 05</div>
+      <div>
+        <h2>{{S4_HEADING}}</h2>
+        <p class="sub">{{S4_SUBHEADING}}</p>
+      </div>
+    </div>
+
+    <div class="comp-grid">
+      <div></div>
+      <div class="comp-list">
+
+        <article class="comp threat reveal" style="--delay: 80ms;">
+          <div class="row1">
+            <span class="role">{{C1_ROLE}}</span>
+            <span class="domain">{{C1_DOMAIN}}</span>
+          </div>
+          <h3>{{C1_NAME}}</h3>
+          <p>{{C1_BODY}}</p>
+        </article>
+
+        <article class="comp reveal" style="--delay: 130ms;">
+          <div class="row1">
+            <span class="role">{{C2_ROLE}}</span>
+            <span class="domain">{{C2_DOMAIN}}</span>
+          </div>
+          <h3>{{C2_NAME}}</h3>
+          <p>{{C2_BODY}}</p>
+        </article>
+
+        <article class="comp reveal" style="--delay: 170ms;">
+          <div class="row1">
+            <span class="role">{{C3_ROLE}}</span>
+            <span class="domain">{{C3_DOMAIN}}</span>
+          </div>
+          <h3>{{C3_NAME}}</h3>
+          <p>{{C3_BODY}}</p>
+        </article>
+
+        <article class="comp reveal" style="--delay: 210ms;">
+          <div class="row1">
+            <span class="role">{{C4_ROLE}}</span>
+            <span class="domain">{{C4_DOMAIN}}</span>
+          </div>
+          <h3>{{C4_NAME}}</h3>
+          <p>{{C4_BODY}}</p>
+        </article>
+
+        <article class="comp reveal" style="--delay: 250ms;">
+          <div class="row1">
+            <span class="role">{{C5_ROLE}}</span>
+            <span class="domain">{{C5_DOMAIN}}</span>
+          </div>
+          <h3>{{C5_NAME}}</h3>
+          <p>{{C5_BODY}}</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 05 Plan ─────────────────────────────────────── -->
+  <section class="section" id="plan">
+    <div class="section-head">
+      <div class="section-num">05 / 05</div>
+      <div>
+        <h2>{{S5_HEADING}}</h2>
+        <p class="sub">{{S5_SUBHEADING}}</p>
+      </div>
+    </div>
+
+    <div class="plan">
+      <div></div>
+      <div class="plan-steps">
+
+        <article class="step reveal" style="--delay: 60ms;">
+          <div class="number">01<span class="total">/03</span></div>
+          <div>
+            <h3>{{STEP1_TITLE}}</h3>
+            <p>{{STEP1_BODY}}</p>
+          </div>
+          <div class="when">
+            <span class="when-k">When</span>
+            <span class="when-v orange">{{STEP1_WHEN}}</span>
+          </div>
+        </article>
+
+        <article class="step reveal" style="--delay: 140ms;">
+          <div class="number">02<span class="total">/03</span></div>
+          <div>
+            <h3>{{STEP2_TITLE}}</h3>
+            <p>{{STEP2_BODY}}</p>
+          </div>
+          <div class="when">
+            <span class="when-k">When</span>
+            <span class="when-v">{{STEP2_WHEN}}</span>
+          </div>
+        </article>
+
+        <article class="step reveal" style="--delay: 220ms;">
+          <div class="number">03<span class="total">/03</span></div>
+          <div>
+            <h3>{{STEP3_TITLE}}</h3>
+            <p>{{STEP3_BODY}}</p>
+          </div>
+          <div class="when">
+            <span class="when-k">When</span>
+            <span class="when-v">{{STEP3_WHEN}}</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ──────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="colophon">
+      <strong>{{FOOTER_TITLE}}</strong>
+      <span>{{FOOTER_BODY}}</span>
+    </div>
+    <img class="ampersand" src="assets/ampersand.png" alt="">
+  </footer>
+
+</main>
+
+</body></html>
